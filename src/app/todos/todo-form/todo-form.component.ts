@@ -28,6 +28,7 @@ export class TodoFormComponent implements OnInit {
 
   onSubmit(): void {
     this.newTodoEvent.emit(this.todoForm.value);
+    this.todoForm.reset();
   }
 
   get name(): AbstractControl | null {

@@ -1,6 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { AbstractControl, Form, FormControl, FormGroup, Validators } from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Todo} from "../todos/todos.interface";
+import {ActivatedRoute} from "@angular/router";
+import {TodoService} from "../todos/todo.service";
 
 @Component({
   selector: 'todo-todo-edit',
@@ -9,21 +11,31 @@ import {Todo} from "../todos/todos.interface";
 })
 export class TodoEditComponent implements OnInit {
 
+  id: number;
+
   editForm: FormGroup = new FormGroup({
-    name: new FormControl(
+    newName: new FormControl(
         null,
         [
           Validators.required,
         ]),
   });
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private todoService: TodoService) {
+  }
 
   ngOnInit(): void {
   }
 
-  get name(): AbstractControl | null {
+  get newName(): AbstractControl | null {
     return this.editForm.get('name');
+  }
+
+  updateTodo() {
+    const newValue: Todo = this.newName.value;
+    this.todoService.updateTodo(this.id, newValue).subscribe(response => {
+      console.log("updated", newValue);
+    })
   }
 
 }

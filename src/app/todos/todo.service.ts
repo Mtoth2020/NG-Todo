@@ -16,14 +16,6 @@ export class TodoService {
         return this.http.get<Todo[]>(TodoService.API_URL);
     }
 
-    getTodosByPostId(postId: number):Observable<Todo[]>{
-        return this.http.get<Todo[]>(TodoService.API_URL + `?postId=${postId}`)
-    }
-
-    getTodoById(id: number):Observable<Todo[]>{
-        return this.http.get<Todo[]>(TodoService.API_URL + `/${id}`)
-    }
-
     sendTodo(todo: Todo): Observable<Todo>{
         return this.http.post<Todo>(TodoService.API_URL, todo)
     }

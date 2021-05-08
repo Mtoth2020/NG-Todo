@@ -1,7 +1,7 @@
 <h2>Edit todo:</h2>
 
 <div class="box">
-    <form [formGroup]="editForm" class="editForm">
+    <form [formGroup]="editForm" (submit)="updateTodo()" class="editForm">
         <div class="editLabel">
             <label for="newName" >Please modify your todo:</label><br>
             <input type="text"
@@ -9,8 +9,8 @@
                    class="editInput"
                    formControlName="newName">
         </div>
-        <div class="error-containers" *ngIf="name?.invalid && name?.touched">
-            <p class="error" *ngIf="name?.errors?.required">
+        <div class="error-containers" *ngIf="newName?.invalid && newName?.touched">
+            <p class="error" *ngIf="newName?.errors?.required">
                 Please fill your todo!
             </p>
         </div>
