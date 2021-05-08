@@ -24,7 +24,7 @@ export class TodoService {
         return this.http.get<Todo[]>(TodoService.API_URL + `/${id}`)
     }
 
-    sendTodo(todo: Todo | undefined): Observable<Todo>{
+    sendTodo(todo: Todo): Observable<Todo>{
         return this.http.post<Todo>(TodoService.API_URL, todo)
     }
 

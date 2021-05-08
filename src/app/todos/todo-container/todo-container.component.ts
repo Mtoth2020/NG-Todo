@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TodoService } from "../todo.service";
 import { Todo } from "../todos.interface";
-import {ActivatedRoute} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'todo-todo-container',
@@ -15,12 +15,10 @@ export class TodoContainerComponent implements OnInit {
   @Input()
   todo: Todo | undefined;
 
-  constructor(private todoService: TodoService, private route: ActivatedRoute) { }
+  constructor(private todoService: TodoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const idString = this.route.snapshot.paramMap.get('id');
-    const postId = Number.parseInt(idString || "");
-    this.todoService.getTodosByPostId(postId).subscribe(todos => {
+    this.todoService.getTodos().subscribe(todos => {
       this.todos = todos;
     })
   }

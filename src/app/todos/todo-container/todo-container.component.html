@@ -1,11 +1,7 @@
 <div class="box">
     <p>Saved todos:</p>
-    <div class="line"></div>
-
-    <ng-template>
-        <div *ngFor="let todo of todos" id="{{todo.id}}">
-            <todo-todo-item [input]="todo"></todo-todo-item>
-        </div>
-    </ng-template>
+    <div *ngFor="let todo of todos" id="{{todo.id}}">
+        <todo-todo-item [input]="todo"></todo-todo-item>
+    </div>
 </div>
 
