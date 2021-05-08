@@ -1,0 +1,20 @@
+
+<form [formGroup]="todoForm" (submit)="onSubmit()" class="todoForm">
+    <div class="todoLabel">
+        <label for="name" >My Todos:</label><br>
+        <input type="text"
+               id="name"
+               class="input"
+               formControlName="name"
+               placeholder="Fill your todo!">
+    </div>
+    <div class="error-containers" *ngIf="name?.invalid && name?.touched">
+        <p class="error" *ngIf="name?.errors?.required">
+            Please fill your todo!
+        </p>
+    </div>
+    <div>
+        <button type="submit" [disabled]="todoForm.invalid" >Submit</button>
+    </div>
+</form>
+
