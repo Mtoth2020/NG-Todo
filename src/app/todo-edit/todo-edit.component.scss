@@ -1,0 +1,36 @@
+.editForm {
+  border: 5px solid #30D8F0;
+  border-radius: 5px;
+  padding: 50px;
+  width: 300px;
+  background: #9AE4E8;
+  box-shadow: 0 0 50px dimgrey;
+  margin-bottom: 20px;
+  color: #104386;
+}
+
+label{
+  font-size: 25px;
+  color: #104386;
+  font-weight: bold;
+}
+
+input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
+}

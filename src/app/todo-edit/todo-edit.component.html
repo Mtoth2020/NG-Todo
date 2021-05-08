@@ -1,4 +1,22 @@
-<p>
-    todo-edit works!
-</p>
+<h2>Edit todo:</h2>
+
+<div class="box">
+    <form [formGroup]="editForm" class="editForm">
+        <div class="editLabel">
+            <label for="newName" >Please modify your todo:</label><br>
+            <input type="text"
+                   id="newName"
+                   class="editInput"
+                   formControlName="newName">
+        </div>
+        <div class="error-containers" *ngIf="name?.invalid && name?.touched">
+            <p class="error" *ngIf="name?.errors?.required">
+                Please fill your todo!
+            </p>
+        </div>
+        <div>
+            <button type="submit" [disabled]="editForm.invalid" >Save</button>
+        </div>
+    </form>
+</div>
 

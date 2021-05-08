@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule} from "./app-routing/app-routing.module";
 import { TodoEditComponent } from "./todo-edit/todo-edit.component";
+import {ReactiveFormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { TodoEditComponent } from "./todo-edit/todo-edit.component";
     BrowserModule,
     TodosModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
