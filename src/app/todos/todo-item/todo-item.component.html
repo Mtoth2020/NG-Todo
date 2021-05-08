@@ -1,5 +1,15 @@
 <article id="{{input?.id}}">
-    <div>
+    <div class="todo">
         <h3> {{input?.name}} </h3>
+        <div class="buttons">
+            <button><a [routerLink]="['/edit', input?.id]" routerLinkActive="active">EDIT</a></button>
+            <br>
+            <button>DEL</button>
+        </div>
     </div>
 </article>
+
+
+
+
+
