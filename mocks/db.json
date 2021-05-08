@@ -6,10 +6,11 @@
     },
     {
       "name": "go to running",
-      "id": 1
+      "id": 2
     },
     {
       "name": "walking with dog",
-      "id": 1
+      "id": 3
     }
   ]
+}

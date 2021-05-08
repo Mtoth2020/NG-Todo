@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import { AbstractControl, Form, FormControl, FormGroup, Validators } from "@angular/forms";
+import { AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Todo } from "../todos.interface";
 
 @Component({
