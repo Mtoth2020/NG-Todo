@@ -16,6 +16,10 @@ export class TodoService {
         return this.http.get<Todo[]>(TodoService.API_URL);
     }
 
+    getTodoById(id: number):Observable<Todo[]>{
+        return this.http.get<Todo[]>(TodoService.API_URL + `/${id}`)
+    }
+
     sendTodo(todo: Todo): Observable<Todo>{
         return this.http.post<Todo>(TodoService.API_URL, todo)
     }
@@ -24,8 +28,8 @@ export class TodoService {
         return this.http.delete(TodoService.API_URL + `/${id}`)
     }
 
-    updateTodo(id:number, todo: Todo): Observable<any> {
-        return this.http.put(TodoService.API_URL + `/${id}`, todo)
+    updateTodo(todo: Todo): Observable<any> {
+        return this.http.put(TodoService.API_URL + `/${todo.id}`, todo)
     }
 
 }

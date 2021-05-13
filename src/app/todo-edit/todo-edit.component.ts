@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 import {Todo} from "../todos/todos.interface";
 import {ActivatedRoute} from "@angular/router";
 import {TodoService} from "../todos/todo.service";
+import {switchMap, tap} from "rxjs/operators";
 
 @Component({
   selector: 'todo-todo-edit',
@@ -12,6 +13,9 @@ import {TodoService} from "../todos/todo.service";
 export class TodoEditComponent implements OnInit {
 
   id: number;
+  todo: Todo | undefined;
+  errorMessage: string = "";
+  response: boolean = false;
 
   editForm: FormGroup = new FormGroup({
     newName: new FormControl(
@@ -25,6 +29,18 @@ export class TodoEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.params
+        .pipe(
+            tap(params => {
+                  this.id = params.id;
+                }
+            ),
+            switchMap(() => this.todoService.getTodoById(this.id)))
+        .subscribe(response => {
+          console.log(this.todo)
+        }, error => {
+          this.errorMessage = error;
+        });
   }
 
   get newName(): AbstractControl | null {
@@ -32,9 +48,13 @@ export class TodoEditComponent implements OnInit {
   }
 
   updateTodo() {
-    const newValue: Todo = this.newName.value;
-    this.todoService.updateTodo(this.id, newValue).subscribe(response => {
-      console.log("updated", newValue);
+    const newTodo: Todo = {
+        name: this.editForm.getRawValue().newName,
+        id: this.id
+    }
+    this.todoService.updateTodo(newTodo).subscribe(response => {
+      console.log("updated", newTodo);
+      this.response = true;
     })
   }
 

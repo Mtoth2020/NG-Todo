@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import { Todo } from "../todos.interface";
 import { TodoService} from "../todo.service";
 
@@ -9,11 +9,11 @@ import { TodoService} from "../todo.service";
 })
 export class TodoItemComponent implements OnInit {
 
-  todos: Todo[] = [];
-  //errorMessage = '';
-
   @Input()
   input: Todo | undefined;
+
+  @Output()
+  deleteTodoId: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private todoService: TodoService) { }
 
@@ -25,7 +25,7 @@ export class TodoItemComponent implements OnInit {
         .subscribe(
             (response) => {
               console.log(response);
-              this.todoService.getTodos();
+              this.deleteTodoId.emit(id);
             }
         )
   }

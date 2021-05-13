@@ -4,7 +4,7 @@
         <div class="buttons">
             <button><a [routerLink]="['/edit', input?.id]" routerLinkActive="active">EDIT</a></button>
             <br>
-            <button type="button" (click)="deleteTask(input.id)">DEL</button>
+            <button (click)="deleteTask(input.id)">DEL</button>
         </div>
     </div>
 </article>

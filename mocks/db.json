@@ -1,24 +1,16 @@
 {
   "todos": [
     {
-      "name": "walking with dog",
+      "name": "kutyát sétáltatni",
+      "id": 2
+    },
+    {
+      "name": "learn angular",
       "id": 3
     },
     {
-      "name": "learning js",
-      "id": 6
-    },
-    {
-      "name": "learning js",
-      "id": 7
-    },
-    {
-      "name": "cycling with friends",
-      "id": 9
-    },
-    {
-      "name": "spanyol házit megcsinálni",
-      "id": 10
+      "name": "learn english",
+      "id": 4
     }
   ]
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Todo } from "../todos.interface";
 import { TodoService } from "../todo.service";
+import {TodoSharedDataService} from "../todo-shared-data.service";
 
 enum NotificationColor {
   Red = "red",
@@ -14,6 +15,8 @@ enum NotificationColor {
 })
 export class TodoFormContainerComponent implements OnInit {
 
+  todos: Todo[] = [];
+
   @Input()
   postId: number | null = null;
   userTodo: Todo | null = null;
@@ -22,7 +25,10 @@ export class TodoFormContainerComponent implements OnInit {
   style: NotificationColor | string = "";
   isNotificationVisible: boolean = false;
 
-  constructor(private todoService: TodoService) { }
+  constructor(
+      private todoService: TodoService,
+      private todoSharedDataService: TodoSharedDataService
+  ) {}
 
   ngOnInit(): void {
   }
@@ -34,6 +40,7 @@ export class TodoFormContainerComponent implements OnInit {
         this.textMessage = "Your todo added successfully!";
         this.style = NotificationColor.Green;
         this.isNotificationVisible = true;
+        this.todoSharedDataService.addTodo(result);
       },
       error: error => {
         this.errorMessage = "Send failed. Network error. Please try again later!";
