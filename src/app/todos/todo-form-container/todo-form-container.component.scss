@@ -1,8 +1,40 @@
 .todoFormContainer {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: #104386;
 }
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  color: #104386;
+}
+
+label {
+  color: #104386;
+}
+
+.notification-body {
+  height: 50px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+
+  &.red {
+    background-color: lightpink;
+    border: 2px solid red;
+  }
+
+  &.green {
+    background-color: lightgreen;
+    border: 2px solid green;
+    width: 150px;
+  }
+
+  &.none {
+  }
 }

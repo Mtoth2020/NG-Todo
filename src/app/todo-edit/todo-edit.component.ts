@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Todo} from "../todos/todos.interface";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TodoService} from "../todos/todo.service";
 import {switchMap, tap} from "rxjs/operators";
 
@@ -25,7 +25,10 @@ export class TodoEditComponent implements OnInit {
         ]),
   });
 
-  constructor(private route: ActivatedRoute, private todoService: TodoService) {
+  constructor(
+      private route: ActivatedRoute,
+      private todoService: TodoService,
+      private router: Router) {
   }
 
   ngOnInit(): void {
@@ -55,7 +58,12 @@ export class TodoEditComponent implements OnInit {
     this.todoService.updateTodo(newTodo).subscribe(response => {
       console.log("updated", newTodo);
       this.response = true;
-    })
+      this.editForm.reset();
+      setTimeout(() => {
+          this.router.navigate([""]).then(r => {})
+      }, 50)
+      })
   }
-
 }
+
+

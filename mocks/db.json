@@ -1,16 +1,28 @@
 {
   "todos": [
     {
-      "name": "kutyát sétáltatni",
-      "id": 2
-    },
-    {
-      "name": "learn angular",
-      "id": 3
-    },
-    {
-      "name": "learn english",
+      "name": "learn spanish",
       "id": 4
+    },
+    {
+      "name": "learn js",
+      "id": 5
+    },
+    {
+      "name": "kutyát sétáltatni",
+      "id": 7
+    },
+    {
+      "name": "learn math",
+      "id": 8
+    },
+    {
+      "name": "elmosogatni",
+      "id": 9
+    },
+    {
+      "name": "buy a new computer",
+      "id": 12
     }
   ]
 }

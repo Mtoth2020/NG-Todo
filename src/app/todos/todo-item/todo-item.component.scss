@@ -1,17 +1,22 @@
 .todo {
-  height: 40px;
-  font-size: 12px;
+  height: 60px;
   border: 4px solid dimgrey;
   border-radius: 10px;
-  background-color: lightseagreen;
+  background-color: #14D6BA;
   box-shadow: 0 0 50px dimgrey;
   padding: 20px;
   margin: 20px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  color: #2C3B63;
+  font-weight: bold;
 }
 
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
 button {
   padding: 5px;
   margin-bottom: 5px;
@@ -20,6 +25,13 @@ button {
   border-radius: 5px;
   color: #1976d2;
   width: 40px;
+}
+
+mat-icon {
+  border: 2px solid #2C3B63;
+  border-radius: 5px;
+  color: #2C3B63;
+  margin-bottom: 5px;
 }
 
 a {

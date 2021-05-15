@@ -2,9 +2,9 @@
     <div class="todo">
         <h3> {{input?.name}} </h3>
         <div class="buttons">
-            <button><a [routerLink]="['/edit', input?.id]" routerLinkActive="active">EDIT</a></button>
+            <mat-icon aria-hidden="false" aria-label="edit"[routerLink]="['/edit', input?.id]" routerLinkActive="active">edit</mat-icon>
             <br>
-            <button (click)="deleteTask(input.id)">DEL</button>
+            <mat-icon aria-hidden="false" aria-label="delete" (click)="deleteTask(input.id)">delete</mat-icon>
         </div>
     </div>
 </article>

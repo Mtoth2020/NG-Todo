@@ -1,5 +1,5 @@
 <div class="box">
-    <p>My saved todos:</p>
+    <p>My todos:</p>
     <div *ngFor="let todo of todos" id="{{todo.id}}">
         <todo-todo-item (deleteTodoId)="deleteTodo($event)" [input]="todo"></todo-todo-item>
     </div>

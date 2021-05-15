@@ -1,20 +1,24 @@
 
 <form [formGroup]="todoForm" (submit)="onSubmit()" class="todoForm">
     <div class="todoLabel">
-        <label for="name" >My Todos:</label><br>
+        <label for="name" >Add todo:</label><br>
         <input type="text"
                id="name"
                class="input"
                formControlName="name"
                placeholder="Fill your todo!">
+        <button mat-raised-button color="accent" type="submit" [disabled]="todoForm.invalid" >Add</button>
     </div>
+    <br>
     <div class="error-containers" *ngIf="name?.invalid && name?.touched">
         <p class="error" *ngIf="name?.errors?.required">
             Please fill your todo!
         </p>
-    </div>
-    <div>
-        <button type="submit" [disabled]="todoForm.invalid" >Add</button>
+        <p class="error" *ngIf="name?.hasError('minlength')">
+            Firstname must be at least 6 characters long.
+        </p>
     </div>
 </form>
+
+
 

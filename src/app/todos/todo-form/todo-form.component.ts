@@ -17,6 +17,7 @@ export class TodoFormComponent implements OnInit {
         null,
         [
           Validators.required,
+          Validators.minLength(6)
         ]),
   });
 
